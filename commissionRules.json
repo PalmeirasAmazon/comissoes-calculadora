@@ -1,0 +1,170 @@
+{
+  "_fonte": "REGULAMENTO DE METAS E COMISSIONAMENTO 3.0 (docx fornecido pelo usuário em 2026-06-22)",
+  "_observacoes": [
+    "Faixa 'Urnas - Plantão Diurno' tinha gap entre R$3.000,00 e R$3.001,00 no documento original (mesmo problema já citado na seção 4.1 do regulamento). Resolvido por decisão do usuário: a faixa inferior absorve até R$3.000,99.",
+    "Tabelas de Adesão para out/2026 e jan/2027 não constam explicitamente no documento (só o teto máximo: 65% e 60%). Foram derivadas por regra confirmada pelo usuário: quando o teto cai X pontos percentuais, todas as faixas da tabela caem os mesmos X pontos percentuais.",
+    "Assunção: a regra de redução do teto de Adesão ('percentual máximo da Remuneração sobre Adesão') foi aplicada às 4 tabelas de Adesão (Televendas e Atendimento Diurno/Comercial/Noturno-Cemitério), pois o documento não restringe a redução só ao Televendas nessa seção. Confirmar com o usuário se algum turno de Atendimento deve ficar de fora.",
+    "Bônus de 1%/2% sobre a 1ª parcela (Adesão Televendas, 28-33 e 34+ planos) é exibido como nota informativa apenas — não é somado automaticamente ao valor calculado, por decisão do usuário.",
+    "Comissão sobre Parcelas Pagas é exclusiva da equipe de Televendas (restrição expressa no regulamento, seção 'Regras de Negócio').",
+    "Gratificação de Vendas Imediatas e Gratificação de Vendas Previdenciárias: faixas informadas diretamente pelo usuário no chat em 2026-06-22 (não constam no docx original). Estrutura em camadas confirmada pelo usuário: abaixo de R$2.000,00 não há gratificação (0%); cada categoria tem campo de faturamento próprio, independente do valor já usado em Urnas/Itens Diversos."
+  ],
+
+  "periodosVigencia": {
+    "base": { "label": "Vigente (até set/2026)", "de": null, "ate": "2026-09-30" },
+    "out2026": { "label": "A partir de out/2026", "de": "2026-10-01", "ate": "2026-12-31" },
+    "jan2027": { "label": "A partir de jan/2027", "de": "2027-01-01", "ate": null }
+  },
+
+  "imediato": {
+    "urnas": {
+      "plantao_diurno": [
+        { "min": 0,        "max": 3000.99,  "percentual": 0.75 },
+        { "min": 3001.00,  "max": 4599.99,  "percentual": 2 },
+        { "min": 4600.00,  "max": 7000.00,  "percentual": 4 },
+        { "min": 7000.01,  "max": 11000.00, "percentual": 6 },
+        { "min": 11000.01, "max": 16000.00, "percentual": 7 },
+        { "min": 16000.01, "max": null,     "percentual": 8 }
+      ],
+      "plantao_comercial": [
+        { "min": 0,       "max": 1800.00,  "percentual": 0.75 },
+        { "min": 1800.01, "max": 2759.99,  "percentual": 2 },
+        { "min": 2760.00, "max": 4200.00,  "percentual": 4 },
+        { "min": 4200.01, "max": 6600.00,  "percentual": 6 },
+        { "min": 6600.01, "max": 9600.00,  "percentual": 7 },
+        { "min": 9600.01, "max": null,     "percentual": 8 }
+      ],
+      "plantao_noturno": [
+        { "min": 0,        "max": 2100.00,  "percentual": 0.75 },
+        { "min": 2100.01,  "max": 3219.99,  "percentual": 2 },
+        { "min": 3220.00,  "max": 4900.00,  "percentual": 4 },
+        { "min": 4900.01,  "max": 7700.00,  "percentual": 6 },
+        { "min": 7700.01,  "max": 11200.00, "percentual": 7 },
+        { "min": 11200.01, "max": null,     "percentual": 8 }
+      ]
+    },
+    "itens_diversos": {
+      "plantao_diurno": [
+        { "min": 0,        "max": 4599.00,  "percentual": 0.35 },
+        { "min": 4599.01,  "max": 6500.00,  "percentual": 1.0 },
+        { "min": 6500.01,  "max": 8500.00,  "percentual": 1.5 },
+        { "min": 8500.01,  "max": 12500.00, "percentual": 2.0 },
+        { "min": 12500.01, "max": 17000.00, "percentual": 2.2 },
+        { "min": 17000.01, "max": null,     "percentual": 2.6 }
+      ],
+      "plantao_comercial": [
+        { "min": 0,        "max": 2759.40,  "percentual": 0.35 },
+        { "min": 2759.41,  "max": 3900.00,  "percentual": 1.0 },
+        { "min": 3900.01,  "max": 5100.00,  "percentual": 1.5 },
+        { "min": 5100.01,  "max": 7500.00,  "percentual": 2.0 },
+        { "min": 7500.01,  "max": 10200.00, "percentual": 2.2 },
+        { "min": 10200.01, "max": null,     "percentual": 2.6 }
+      ],
+      "plantao_noturno": [
+        { "min": 0,        "max": 3219.30,  "percentual": 0.35 },
+        { "min": 3219.31,  "max": 4550.00,  "percentual": 1.0 },
+        { "min": 4550.01,  "max": 5950.00,  "percentual": 1.5 },
+        { "min": 5950.01,  "max": 8750.00,  "percentual": 2.0 },
+        { "min": 8750.01,  "max": 11900.00, "percentual": 2.2 },
+        { "min": 11900.01, "max": null,     "percentual": 2.6 }
+      ]
+    }
+  },
+
+  "adesao": {
+    "televendas": {
+      "base": [
+        { "min": 0,  "max": 14,   "percentual": 20 },
+        { "min": 15, "max": 18,   "percentual": 60 },
+        { "min": 19, "max": 22,   "percentual": 65 },
+        { "min": 23, "max": 27,   "percentual": 70 },
+        { "min": 28, "max": 33,   "percentual": 70, "bonusPrimeiraParcela": 1 },
+        { "min": 34, "max": null, "percentual": 70, "bonusPrimeiraParcela": 2 }
+      ],
+      "out2026": [
+        { "min": 0,  "max": 14,   "percentual": 15 },
+        { "min": 15, "max": 18,   "percentual": 55 },
+        { "min": 19, "max": 22,   "percentual": 60 },
+        { "min": 23, "max": 27,   "percentual": 65 },
+        { "min": 28, "max": 33,   "percentual": 65, "bonusPrimeiraParcela": 1 },
+        { "min": 34, "max": null, "percentual": 65, "bonusPrimeiraParcela": 2 }
+      ],
+      "jan2027": [
+        { "min": 0,  "max": 14,   "percentual": 10 },
+        { "min": 15, "max": 18,   "percentual": 50 },
+        { "min": 19, "max": 22,   "percentual": 55 },
+        { "min": 23, "max": 27,   "percentual": 60 },
+        { "min": 28, "max": 33,   "percentual": 60, "bonusPrimeiraParcela": 1 },
+        { "min": 34, "max": null, "percentual": 60, "bonusPrimeiraParcela": 2 }
+      ]
+    },
+    "atendimento": {
+      "plantao_diurno": {
+        "base":    [ { "min": 0, "max": 5,    "percentual": 20 }, { "min": 6,  "max": 10, "percentual": 60 }, { "min": 11, "max": null, "percentual": 70 } ],
+        "out2026": [ { "min": 0, "max": 5,    "percentual": 15 }, { "min": 6,  "max": 10, "percentual": 55 }, { "min": 11, "max": null, "percentual": 65 } ],
+        "jan2027": [ { "min": 0, "max": 5,    "percentual": 10 }, { "min": 6,  "max": 10, "percentual": 50 }, { "min": 11, "max": null, "percentual": 60 } ]
+      },
+      "plantao_comercial": {
+        "base":    [ { "min": 0, "max": 8,    "percentual": 20 }, { "min": 9,  "max": 12, "percentual": 60 }, { "min": 13, "max": null, "percentual": 70 } ],
+        "out2026": [ { "min": 0, "max": 8,    "percentual": 15 }, { "min": 9,  "max": 12, "percentual": 55 }, { "min": 13, "max": null, "percentual": 65 } ],
+        "jan2027": [ { "min": 0, "max": 8,    "percentual": 10 }, { "min": 9,  "max": 12, "percentual": 50 }, { "min": 13, "max": null, "percentual": 60 } ]
+      },
+      "plantao_noturno_cemiterio": {
+        "base":    [ { "min": 1, "max": null, "percentual": 70 } ],
+        "out2026": [ { "min": 1, "max": null, "percentual": 65 } ],
+        "jan2027": [ { "min": 1, "max": null, "percentual": 60 } ]
+      }
+    }
+  },
+
+  "gratificacoes": {
+    "vendas_imediatas": [
+      { "min": 0,    "max": 1999.99, "percentual": 0 },
+      { "min": 2000, "max": 3999.99, "percentual": 0.5 },
+      { "min": 4000, "max": 7999.99, "percentual": 1 },
+      { "min": 8000, "max": null,    "percentual": 2 }
+    ],
+    "vendas_previdenciarias": [
+      { "min": 0,    "max": 1999.99, "percentual": 0 },
+      { "min": 2000, "max": 3999.99, "percentual": 0.5 },
+      { "min": 4000, "max": 7999.99, "percentual": 1 },
+      { "min": 8000, "max": null,    "percentual": 2 }
+    ]
+  },
+
+  "parcelas": {
+    "televendas": {
+      "primeira": [
+        { "min": 0,       "max": 1099,  "percentual": 4 },
+        { "min": 1100,    "max": 1299,  "percentual": 8 },
+        { "min": 1300,    "max": 1599,  "percentual": 12 },
+        { "min": 1600,    "max": 1899,  "percentual": 16 },
+        { "min": 1900,    "max": 2499,  "percentual": 25 },
+        { "min": 2500,    "max": null,  "percentual": 28 }
+      ],
+      "segunda": [
+        { "min": 0,    "max": 799,  "percentual": 4 },
+        { "min": 800,  "max": 1099, "percentual": 8 },
+        { "min": 1100, "max": 1299, "percentual": 12 },
+        { "min": 1300, "max": 1599, "percentual": 16 },
+        { "min": 1600, "max": 2399, "percentual": 20 },
+        { "min": 2400, "max": null, "percentual": 22 }
+      ],
+      "terceira": [
+        { "min": 0,    "max": 499,  "percentual": 4 },
+        { "min": 500,  "max": 699,  "percentual": 8 },
+        { "min": 700,  "max": 899,  "percentual": 12 },
+        { "min": 900,  "max": 999,  "percentual": 16 },
+        { "min": 1000, "max": 1699, "percentual": 20 },
+        { "min": 1700, "max": null, "percentual": 22 }
+      ],
+      "quarta": [
+        { "min": 0,    "max": 499,  "percentual": 4 },
+        { "min": 500,  "max": 699,  "percentual": 8 },
+        { "min": 700,  "max": 899,  "percentual": 12 },
+        { "min": 900,  "max": 999,  "percentual": 16 },
+        { "min": 1000, "max": 1499, "percentual": 20 },
+        { "min": 1500, "max": null, "percentual": 22 }
+      ]
+    }
+  }
+}

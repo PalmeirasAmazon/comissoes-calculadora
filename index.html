@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Comissões — Grupo Palmeiras Amazon</title>
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-inner">
+      <div class="marca">
+        <span class="marca-icone">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 8v8M8.5 10.5h7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </span>
+        <div>
+          <h1>Calculadora de Comissões</h1>
+          <p class="subtitulo">Grupo Palmeiras Amazon</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="coluna-selecao">
+      <div class="cartao cartao-selecao">
+        <h2 class="titulo-secao">Contexto da simulação</h2>
+
+        <div class="campo">
+          <label for="setor">Setor</label>
+          <select id="setor">
+            <option value="atendimento">Atendimento</option>
+            <option value="televendas">Televendas</option>
+          </select>
+        </div>
+
+        <div class="campo" id="campo-turno">
+          <label for="turno">Turno</label>
+          <select id="turno">
+            <option value="plantao_diurno">Plantão Diurno</option>
+            <option value="plantao_comercial">Plantão Comercial</option>
+            <option value="plantao_noturno">Plantão Noturno</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="periodo">Período de vigência (Adesão)</label>
+          <select id="periodo">
+            <option value="base">Vigente (até set/2026)</option>
+            <option value="out2026">A partir de out/2026</option>
+            <option value="jan2027">A partir de jan/2027</option>
+          </select>
+        </div>
+
+        <p class="dica">O setor e turno valem para Adesão e Imediato. Parcelas é restrita a Televendas.</p>
+      </div>
+    </aside>
+
+    <div class="coluna-principal">
+      <nav class="abas">
+        <button class="aba ativa" data-aba="adesao">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 12c2.5 0 4.5-2 4.5-4.5S14.5 3 12 3 7.5 5 7.5 7.5 9.5 12 12 12z" stroke="currentColor" stroke-width="1.5"/><path d="M4 21c0-3.9 3.6-7 8-7s8 3.1 8 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Adesão
+        </button>
+        <button class="aba" data-aba="imediato">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="9" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M4 13h16M9 9V6.5A1.5 1.5 0 0 1 10.5 5h3A1.5 1.5 0 0 1 15 6.5V9" stroke="currentColor" stroke-width="1.5"/></svg>
+          Imediato
+        </button>
+        <button class="aba" data-aba="parcelas">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 14.5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Parcelas
+        </button>
+        <button class="aba" data-aba="total">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 19V5M5 19h14M9 15l3-4 2.5 2.5L19 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Resumo Total
+        </button>
+      </nav>
+
+      <!-- ADESÃO -->
+      <section class="aba-conteudo" id="aba-adesao">
+        <div class="cartao">
+          <h2 class="titulo-secao">Comissão sobre Adesão</h2>
+          <div class="grade-campos">
+            <div class="campo">
+              <label for="adesao-taxa">Taxa de Adesão paga pelo cliente (R$)</label>
+              <input type="number" id="adesao-taxa" min="0" step="0.01" placeholder="0,00">
+            </div>
+            <div class="campo">
+              <label for="adesao-qtd">Planos vendidos no mês</label>
+              <input type="number" id="adesao-qtd" min="0" step="1" placeholder="0">
+            </div>
+          </div>
+          <button class="btn-calcular" id="btn-adesao">Calcular comissão</button>
+          <div class="resultado" id="resultado-adesao"></div>
+        </div>
+      </section>
+
+      <!-- IMEDIATO -->
+      <section class="aba-conteudo escondida" id="aba-imediato">
+        <div class="cartao">
+          <h2 class="titulo-secao">Urnas</h2>
+          <div class="campo">
+            <label for="urnas-valor">Faturamento de Urnas (R$)</label>
+            <input type="number" id="urnas-valor" min="0" step="0.01" placeholder="0,00">
+          </div>
+          <button class="btn-calcular" id="btn-urnas">Calcular comissão</button>
+          <div class="resultado" id="resultado-urnas"></div>
+        </div>
+
+        <div class="cartao">
+          <h2 class="titulo-secao">Itens Diversos</h2>
+          <div class="campo">
+            <label for="itens-valor">Faturamento de Itens Diversos (R$)</label>
+            <input type="number" id="itens-valor" min="0" step="0.01" placeholder="0,00">
+          </div>
+          <button class="btn-calcular" id="btn-itens">Calcular comissão</button>
+          <div class="resultado" id="resultado-itens"></div>
+        </div>
+
+        <div class="cartao">
+          <h2 class="titulo-secao">Gratificação de Vendas Imediatas</h2>
+          <div class="campo">
+            <label for="grat-imediatas-valor">Faturamento de Vendas Imediatas (R$)</label>
+            <input type="number" id="grat-imediatas-valor" min="0" step="0.01" placeholder="0,00">
+          </div>
+          <button class="btn-calcular" id="btn-grat-imediatas">Calcular gratificação</button>
+          <div class="resultado" id="resultado-grat-imediatas"></div>
+        </div>
+
+        <div class="cartao">
+          <h2 class="titulo-secao">Gratificação de Vendas Previdenciárias</h2>
+          <div class="campo">
+            <label for="grat-previdenciarias-valor">Faturamento de Vendas Previdenciárias (R$)</label>
+            <input type="number" id="grat-previdenciarias-valor" min="0" step="0.01" placeholder="0,00">
+          </div>
+          <button class="btn-calcular" id="btn-grat-previdenciarias">Calcular gratificação</button>
+          <div class="resultado" id="resultado-grat-previdenciarias"></div>
+        </div>
+      </section>
+
+      <!-- PARCELAS -->
+      <section class="aba-conteudo escondida" id="aba-parcelas">
+        <div class="cartao">
+          <h2 class="titulo-secao">Comissão sobre Parcelas Pagas</h2>
+          <p class="aviso">Exclusiva da equipe de Televendas, conforme regulamento.</p>
+          <div class="grade-campos">
+            <div class="campo">
+              <label for="parcela-numero">Parcela</label>
+              <select id="parcela-numero">
+                <option value="primeira">1ª Parcela</option>
+                <option value="segunda">2ª Parcela</option>
+                <option value="terceira">3ª Parcela</option>
+                <option value="quarta">4ª Parcela</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="parcela-valor">Valor da parcela paga (R$)</label>
+              <input type="number" id="parcela-valor" min="0" step="0.01" placeholder="0,00">
+            </div>
+          </div>
+          <button class="btn-calcular" id="btn-parcela">Calcular comissão</button>
+          <div class="resultado" id="resultado-parcela"></div>
+        </div>
+      </section>
+
+      <!-- RESUMO TOTAL -->
+      <section class="aba-conteudo escondida" id="aba-total">
+        <div class="cartao">
+          <h2 class="titulo-secao">Resumo Total a Receber</h2>
+          <p class="dica" style="margin-top:0;border-top:none;padding-top:0;">Soma a última simulação calculada em cada categoria. Calcule nas abas Adesão, Imediato e Parcelas antes de conferir aqui.</p>
+          <ul id="lista-resumo-total"></ul>
+          <div class="resumo-total-linha">
+            <span>Total a receber</span>
+            <span id="resumo-total-valor">R$ 0,00</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="cartao historico">
+        <div class="historico-cabecalho">
+          <h2 class="titulo-secao">Histórico de simulações</h2>
+          <button id="btn-limpar-historico" class="btn-limpar">Limpar</button>
+        </div>
+        <ul id="lista-historico"></ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="commissionLogic.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
